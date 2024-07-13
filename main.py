@@ -10,8 +10,6 @@ from sklearn.linear_model import LogisticRegression
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#DATA SOURCE: https://www.kaggle.com/datasets/vinesmsuic/star-categorization-giants-and-dwarfs
-
 #Vmag: visual apparent magnitude of the star
 #Plx distance between the star and Earth
 #e_Plx standard error of the plx
