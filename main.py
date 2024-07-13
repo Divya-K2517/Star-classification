@@ -10,6 +10,7 @@ from sklearn.linear_model import LogisticRegression
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
 #Vmag: visual apparent magnitude of the star
 #Plx distance between the star and Earth
 #e_Plx standard error of the plx
@@ -18,7 +19,7 @@ import matplotlib.pyplot as plt
 #Amag: absolute magnitude of the star
 #TargetClass: 0=Dwarf, 1=Giant
 
-data = pd.read_csv("star type classification/Star3642_balanced.csv")
+data = pd.read_csv("star type classification(KNN)/Star3642_balanced.csv")
 
 type_conversions = {
     0:"Dwarf",
@@ -60,9 +61,9 @@ correct = 0
 for i in range(len(predictions)):
     if predictions[i] == y_test[i]:
         correct += 1
-percent_correct = (correct/total)*100
-stats = "\n\nAccuracy={:0.3f}%\nTotal Stars={:0.3f}\nPercent Correct={:0.3f}%".format(
-                acc,total,percent_correct)
+percent_correct = (correct/len(x_test))*100
+stats = "\n\nAccuracy={:0.3f}%\nTotal Stars={:0.3f}".format(
+                acc,total)
 
 sns.heatmap(cf_matrix, annot=True, cmap="BuPu", fmt=" ",
             xticklabels=names, yticklabels=names)
@@ -70,6 +71,3 @@ plt.xlabel("predicted classifications")
 plt.ylabel("actual classifications")
 plt.title(stats)
 plt.show()
-
-
-
